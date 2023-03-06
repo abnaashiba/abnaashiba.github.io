@@ -115,6 +115,7 @@
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const names = JSON.parse(urlParams.get('data'));
+    document.title = JSON.parse(urlParams.get('name'));
     for (var i = 0; i < names.length; i++) {
           var cheque_div = document.createElement("div")
           cheque_div.className = 'cheque-div';

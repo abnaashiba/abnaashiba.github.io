@@ -122,7 +122,6 @@
             document.getElementById('input-file').addEventListener('change', function (e) {
                 var file = e.target.files[0];
                 document.getElementById('chosen-file-name').innerHTML = file.name;
-                console.log(file.name);
 
             });
 
@@ -135,8 +134,7 @@
                         const workbook = XLSX.read(fileData, { type: 'binary' });
                         const sheetName = workbook.SheetNames[0];
                         const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 'A', defval: '' });
-                        console.log(sheetData);
-                        window.open(`print.html?data=${JSON.stringify(sheetData)}`, '_blank');
+                        window.open(`print.html?name="${inputFile.name.split('.').slice(0, -1).join('.')}"&data=${JSON.stringify(sheetData)}`, '_blank');
                     }
                     reader.readAsBinaryString(inputFile);
                 }
