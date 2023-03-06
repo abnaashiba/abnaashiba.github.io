@@ -659,6 +659,7 @@ strong {
 
 .featured-block-image {
   display: block;
+  width: 40%;
   margin: auto;
   transition: all 0.5s;
 }
