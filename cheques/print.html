@@ -48,6 +48,7 @@
       direction: rtl;
 
     }
+
     .amount-num-div,
     .amount-num-div * {
       position: absolute;
@@ -56,6 +57,7 @@
       direction: rtl;
 
     }
+
     .amount-letters-div,
     .amount-letters-div * {
       position: absolute;
@@ -108,15 +110,18 @@
 </head>
 
 <body>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
   <script src="../js/taf.js"></script>
-  
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const names = JSON.parse(urlParams.get('data'));
-    document.title = JSON.parse(urlParams.get('name'));
-    for (var i = 0; i < names.length; i++) {
+    window.addEventListener('message', function (event) {
+      if (event.data.file && event.data.data) {
+        const workbook = XLSX.read(event.data.data, { type: 'binary' });
+        const sheetName = workbook.SheetNames[0];
+        const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 'A', defval: '' });
+        const urlParams = new URLSearchParams(window.location.search);
+        console.log(sheetData)
+        document.title = JSON.parse(urlParams.get('name'));
+        for (var i = 0; i < sheetData.length; i++) {
           var cheque_div = document.createElement("div")
           cheque_div.className = 'cheque-div';
           var name1 = document.createElement("div")
@@ -128,17 +133,17 @@
           var back = document.createElement("div")
           back.className = 'background ';
           name1.className = 'name-div';
-          name1.innerHTML = names[i].B;
+          name1.innerHTML = sheetData[i].B;
           amount_num.className = 'amount-num-div';
-          amount_num.innerHTML = "#" + names[i].C + "#";
+          amount_num.innerHTML = "#" + sheetData[i].C + "#";
           amount_letters.className = 'amount-letters-div';
-          amount_letters.innerHTML = "فقط " + tafqeet(names[i].C) + " جنيه مصري لا غير";
+          amount_letters.innerHTML = "فقط " + tafqeet(sheetData[i].C) + " جنيه مصري لا غير";
           date.className = 'date-div';
-          date.innerHTML = names[i].D;
+          date.innerHTML = sheetData[i].D;
           sign.className = 'sign-div';
-          sign.innerHTML = names[i].E;
+          sign.innerHTML = sheetData[i].E;
           place.className = 'place-div';
-          place.innerHTML = names[i].F;
+          place.innerHTML = sheetData[i].F;
           cheque_div.appendChild(back);
           cheque_div.appendChild(name1);
           cheque_div.appendChild(amount_num);
@@ -148,6 +153,8 @@
           cheque_div.appendChild(amount_letters);
           document.body.appendChild(cheque_div);
         }
+      }
+    });
   </script>
 </body>
 

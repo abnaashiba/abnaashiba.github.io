@@ -134,7 +134,11 @@
                         const workbook = XLSX.read(fileData, { type: 'binary' });
                         const sheetName = workbook.SheetNames[0];
                         const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 'A', defval: '' });
-                        window.open(`print.html?name="${inputFile.name.split('.').slice(0, -1).join('.')}"&data=${JSON.stringify(sheetData)}`, '_blank');
+                        const printWindow = window.open(`print.html?name="${inputFile.name.split('.').slice(0, -1).join('.')}"`, '_blank');
+                        printWindow.addEventListener('load', function () {
+                            // Pass the file object to the print page
+                            printWindow.postMessage({ file: inputFile, data: fileData }, '*');
+                        });
                     }
                     reader.readAsBinaryString(inputFile);
                 }
@@ -166,7 +170,8 @@
                     <h5 class="site-footer-title mb-3">روابط مهمة</h5>
 
                     <ul class="footer-menu">
-                        <li class="footer-menu-item"><a href="../#home" class="footer-menu-link">الصفحة الرئيسية</a></li>
+                        <li class="footer-menu-item"><a href="../#home" class="footer-menu-link">الصفحة الرئيسية</a>
+                        </li>
                         <li class="footer-menu-item"><a href="../#work" class="footer-menu-link">أعمالنا</a></li>
                         <li class="footer-menu-item"><a href="../#jops" class="footer-menu-link">الوظائف</a></li>
                         <li class="footer-menu-item"><a href="../#about" class="footer-menu-link">عن الشركة</a></li>
