@@ -20,8 +20,11 @@
     </head>
     
     <body id="section_1">
-
-        <nav class="navbar navbar-expand-lg bg-light shadow-lg" style="direction: rtl;">
+        <div id="loading-container" style="align-items: center; display: flex; justify-content: center; height: 100vh;">
+            <img src="../images/loading.gif">
+        </div>
+    
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg" style="direction: rtl; display: none;" id="nav-container">
             <div class="container">
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +67,7 @@
             </div>
         </nav>
 
-        <main>
+        <main style="display: none;" id="main-container">
     
             <section class="section-padding" id="work">
                 
@@ -73,11 +76,7 @@
 
                         <div class="col-lg-12 col-12 text-center mb-4">
                             <h2>آخر أعمالنا</h2>
-                        </div>
-                        <div id="loading-spinner" style="text-align: center; padding: 50px;">
-                            <img src="../../images/loading.gif" alt="Loading..." />
-                        </div>
-            
+                        </div>            
                         <div id="projects-container" class="row projects-container"></div>
 
                     </div>
@@ -88,103 +87,77 @@
 
         </main>
 
-        <footer class="site-footer">
+        <footer class="site-footer" style="display: none;" id="footer-container">
             <div class="container" style="direction: rtl;">
                 <div class="row">
                     <div class="col-lg-3 col-12 mb-4">
                         <img src="../images/logo.jpg" class="logo img-fluid" alt="">
                     </div>
-
+    
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
                         <h5 class="site-footer-title mb-3">روابط مهمة</h5>
-
+    
                         <ul class="footer-menu">
                             <li class="footer-menu-item"><a href="../" class="footer-menu-link">الصفحة الرئيسية</a></li>
-                            <li class="footer-menu-item"><a href="" class="footer-menu-link">أعمالنا</a></li>
-                            <li class="footer-menu-item"><a href="../#jops" class="footer-menu-link">الوظائف</a></li>
                             <li class="footer-menu-item"><a href="../#about" class="footer-menu-link">عن الشركة</a></li>
-                            <li class="footer-menu-item"><a href="../#contact" class="footer-menu-link">تواصل معنا</a></li>
+                            <li class="footer-menu-item"><a href="" class="footer-menu-link">أعمالنا</a></li>
+                            <li class="footer-menu-item"><a href="https://www.linkedin.com/company/abnaashiba/jobs/"
+                                    class="footer-menu-link">الوظائف</a></li>
     
                         </ul>
                     </div>
-
                     <div class="col-lg-4 col-md-6 col-12 mx-auto">
-                        <h5 class="site-footer-title mb-3">بيانات التواصل</h5>
-
-                        <p class="text-white d-flex mb-2">
-                            <i class="bi-telephone me-2" style="padding-left: 10px;"></i>
-
-                            <a href="tel:+201234567890" class="site-footer-link">
-                                01234567890
-                            </a>
-                        </p>
+                        <h5 class="site-footer-title mb-3">تواصل معنا</h5>
                         <p class="text-white d-flex">
                             <i class="bi-envelope me-2" style="padding-left: 10px;"></i>
-
+    
                             <a href="mailto:info@abnaashiba.com" class="site-footer-link">
                                 info@abnaashiba.com
                             </a>
                         </p>
-                        <p class="text-white d-flex">
-                            <i class="bi-facebook me-2" style="padding-left: 10px;"></i>
-                            <a href="https://www.facebook.com/abnaashiba" class="site-footer-link">
-                                facebook.com/abnaashiba
-                            </a>
-                        </p>
-                        <p class="text-white d-flex">
-                            <i class="bi-linkedin me-2" style="padding-left: 10px;"></i>
-                            <a href="https://www.linkedin.com" class="site-footer-link">
-                                linkedin.com
-                            </a>
-                        </p>
-    
-                        <p class="text-white d-flex mt-3">
-                            <i class="bi-geo-alt me-2" style="padding-left: 10px;"></i>
-                            
-                            <a href="https://goo.gl/maps/qigXTQX86w66cWm29" class="site-footer-link">
-                                الفيوم
-                            </a>
-                        </p>
-
-                        <a href="tel:+201234567890" class="custom-btn btn mt-3">اتصل بنا</a>
+                        <a href="#contact" class="custom-btn btn mt-3">تواصل معنا</a>
                     </div>
                 </div>
             </div>
-
+    
             <div class="site-footer-bottom">
                 <div class="container">
                     <div class="row">
-
+    
                         <div class="col-lg-6 col-md-7 col-12" style="direction: ltr;">
-                            <p style="direction: ltr;" class="copyright-text mb-0">This Website was developed by <a href="https://www.linkedin.com/in/ahmadmhasann/">Ahmed Hassan</a>.</p>
-                            <p style="direction: ltr;" class="copyright-text mb-0">For any support, contact me at <a href="mailto:ahmadmhasann@gmail.com">ahmadmhasann@gmail.com</a></p>
+                            <p style="direction: ltr;" class="copyright-text mb-0">This Website was developed by <a
+                                    href="https://www.ahmedhassandev.com/">Ahmed Hassan</a>.</p>
+                            <p style="direction: ltr;" class="copyright-text mb-0">For any support, contact me at <a
+                                    href="mailto:ahmadmhasann@gmail.com">ahmadmhasann@gmail.com</a></p>
                         </div>
-                        
+    
                         <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
                             <ul class="social-icon">
                                 <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-envelope"></a>
+                                    <a href="https://www.ahmedhassandev.com/" class="social-icon-link bi-link"></a>
                                 </li>
-
                                 <li class="social-icon-item">
-                                    <a href="https://www.facebook.com/ahmadmhasann/" class="social-icon-link bi-facebook"></a>
+                                    <a href="mailto:ahmadmhasann@gmail.com" class="social-icon-link bi-envelope"></a>
                                 </li>
-
                                 <li class="social-icon-item">
-                                    <a href="https://www.linkedin.com/in/ahmadmhasann/" class="social-icon-link bi-linkedin"></a>
+                                    <a href="https://www.facebook.com/ahmadmhasann/"
+                                        class="social-icon-link bi-facebook"></a>
                                 </li>
-
+                                <li class="social-icon-item">
+                                    <a href="https://www.linkedin.com/in/ahmadmhasann/"
+                                        class="social-icon-link bi-linkedin"></a>
+                                </li>
                                 <li class="social-icon-item">
                                     <a href="tel:+201024242768" class="social-icon-link bi-telephone-fill"></a>
                                 </li>
                             </ul>
                         </div>
-                        
+    
                     </div>
                 </div>
             </div>
         </footer>
-
+    
         <!-- JAVASCRIPT FILES -->
         <script src="../js/jquery.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
@@ -194,8 +167,12 @@
         <script src="../js/custom.js"></script>
         <script type="module">
             import { fetchProjects } from "../js/projects.js";
-            document.addEventListener('DOMContentLoaded', () => {
-                fetchProjects(0); 
+            document.addEventListener('DOMContentLoaded', async () => {
+                await fetchProjects(0); 
+                document.getElementById("loading-container").style.display = 'none';
+                document.getElementById("nav-container").style.display = 'block';
+                document.getElementById("main-container").style.display = 'block';
+                document.getElementById("footer-container").style.display = 'block';
             });
         </script>
 

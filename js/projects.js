@@ -18,10 +18,6 @@ export async function fetchProjects(docsLimit) {
     querySnapshot.forEach((doc) => {
         displayProject(doc, docsLimit);
     });
-    if (window.location.pathname.includes("/projects/"))
-    {
-        document.getElementById('loading-spinner').style.display = 'none';
-    }
 }
 
 export async function fetchProjectDetails() {
